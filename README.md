@@ -3,9 +3,12 @@
 ## What is This?
 This repository temporarily exists in efforts to collaborate with staff and student in UC Berkeley's CS61C class and create a synopsis of Machine Structures. 
 
+___
 ## How to Use?
 If you would like to contribute here is how you can help:
+
 1. Raise in Issue if you notice any errors.
+
 2. If you would like to add content you will need to know the following.
 
 The guide itself is written in [MultiMarkdown](http://fletcherpenney.net/multimarkdown/) syntax.
@@ -20,7 +23,12 @@ All images are in the `images` directory of the  `resources` directory.
 
 After you make any changes and test that it converts sucessfully into a PDF (**VERY IMPORTANT**), please raise and issue with the attached `.md` file list. 
 
-# How to Become an Author?
-- Find more that 10 unique errors.
+___
+## How to Become an CoAuthor?
+This basically means you get free push acess + your name in the colophon for future generations of Computer Scientists to marvel at.
+What You Need To Do:
+
+- Find more than 10 unique errors.
+
 - Contribute more than 2 sections.
 
