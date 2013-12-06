@@ -3,15 +3,15 @@
 % Published by [The OCM](http://ocm.io) on December 8th, 2013
 \pagebreak
 
-### Why This Exists
+## Why This Exists
 While taking my Machine Structures class I found it very difficult to conceptually understand and network the plethora of new found concepts. Thus I wrote up this brief synopsis of the concepts I found useful to understanding the core ideas. This is of course by no means **comprehensive** but I do hope it will provide you with a somewhat better understanding computer architecture. Please feel free to [email me](mailto:me@krishna.im) if you have an questions, suggestions, or corrections. Thanks and enjoy!
 
 ___
-### Introduction
+## Introduction
 Okay, so you want to *understand* Machine Structures. But why in heaven's name to you want to take on this rather insurmountable task? I'll take a wild guess you may be forced into this by your universities’ curriculum task force -namely your professor. Despite the pain in frustration you *may* go through as you dive deeper, believe or not the ideas in this realm are actually quite useful in your everyday life. In fact the advances we have made in machine structures in the past thirty years are the reason the internet exists in the capacity we have grown to love. Because of this progress you can use things like *parallelism* and *pipelining* run an intensive Google search in milliseconds or execute massive projects like mapping the Human Genome to tailor medical care specifically to you. 
 
 ___
-### The Big Picture
+## The Big Picture
 So chances are you have already tried a tiny bit of coding. But how does that virtual code turn in to physical phenomenon?  Well let's start of by defining a few ideas in the computing lexicon:
 
 - An **Operating System (OS)** is a interface between a your program and the hardware that manages the resources and ensures you can do things like use a keyboard, store data in memory, and handle many applications at once.
@@ -56,7 +56,7 @@ Phew! Now that that's out of the way, we can starting talking about some really 
 ![The Big Picture](./resources/images/the-big-picture.png)
 
 ___
-### The Six Great Ideas in Computer Architecture
+## The Six Great Ideas in Computer Architecture
 Thus we come upon the The Six Great Ideas in Computer Architecture (so named due to their greatness). These topics will form the basis for the rest of this guide.
 
 1. **Design processors using [Moore's Law](http://wikipedia.org/wiki/Moores_law)** which states processing speed and memory capacity will double every two years; a happenstance that is related to the number of transistors in the chip doubling. It  was predicted by Gordon Moore in 1965, and has held roughly true thus far. 
@@ -74,63 +74,63 @@ Thus we come upon the The Six Great Ideas in Computer Architecture (so named due
 With basically these ideas we have managed to come to where computers are today! Pretty impressive, isn't it?
 
 ___
-### The Hardware Structure of A Computer
+## The Hardware Structure of A Computer
 Now we want to try and understand how a modern computer is structured today. We will choose a reletivly simple example, but don't fear if you don't understand what something is. All will come in due time! Thus we begin.
 
 ___
-### Memory Hierarchy
-#### Introduction
+## Memory Hierarchy
+### Introduction
 Types of memory, L1, L2, Cache how they are ordered etc
-#### Structure
+### Structure
 Registers,  Etc.
-#### Direct Mapped Caches
-#### Multilevel Caches 
-####  AMAT
-#### Flynn Taxonomy
-#### Shared Memory
-#### Virtual Memory
+### Direct Mapped Caches
+### Multilevel Caches 
+###  AMAT
+### Flynn Taxonomy
+### Shared Memory
+### Virtual Memory
 
 ___
-### Machine Instructions
-#### MIPS
+## Machine Instructions
+### MIPS
 Basics MIPS stuff eg. how it works, instuctions, link to green sheet, and uses
 Converting Binary to MIP
 
 ___
-### Binary Representations
+## Binary Representations
 Signed, Unsigned, Two's Complement, Hex, Conversions, Extensions etc.
 
 ___
-### The CPU
+## The CPU
 Structure, Performance, Multiprocessing
 
 ___
-### Hardware Level
+## Hardware Level
 Assembly to Machine, Logic Gates, 
 
 ___
-### Code Optimization Techniques
-#### Cache Blocking
-#### Pipelining
+## Code Optimization Techniques
+### Cache Blocking
+### Pipelining
 Lead to next section : Parallelism
 
 ___
-### Parallelism
-#### Introduction
-#### Amdahl's Law
-#### Request Level Parallelism 
-##### Application: MapReduce
-#### Data Level Parallelism 
-#### Thread Level Parallelism
-##### OpenMP
-#### Instruction Level Parallelism
+## Parallelism
+### Introduction
+### Amdahl's Law
+### Request Level Parallelism 
+#### Application: MapReduce
+### Data Level Parallelism 
+### Thread Level Parallelism
+#### OpenMP
+### Instruction Level Parallelism
 
 ___
-### Application: Warehouse Scale Computing
+## Application: Warehouse Scale Computing
 
 
 
 
 ___
-### Colophon
+## Colophon
 Written by [Krishna Parashar](http://krishna.im) in Markdown on Byword. Used [Pandoc](http://johnmacfarlane.net/pandoc/) to convert from Markdown to Latex. 
