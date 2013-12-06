@@ -47,7 +47,9 @@ So chances are you have already tried a tiny bit of coding. But how does that vi
 
 - A **Binary Digit (Bit)** is well, the each one of those 1's and 0's. Each spot where you can have a digit contains a *bit* so if you have the above  machine language output, that would be 16 **bits**. Now you may be wondering, "Hey I have heard of a **Byte**, is that the same as a *bit*?" Good question!
 
-- A **Byte** the what you call when you have 8 *bits* together. So if you have the 16 bits of machine language we were talking about earlier, you can alternately say you have 2 **bytes** of machine language. Pretty cool huh? But wait, remember when you bought you computer and it had 500 GB of space? That's *simply* 500 * 1,000,000,000 (from the *Giga* part) **bytes** or 500 * 1,000,000,000 * 8 (from the byte part) **bits**!
+- A **Byte** the what you call when you have 8 *bits* together. So if you have the 16 bits of machine language we were talking about earlier, you can alternately say you have 2 **bytes** of machine language. Pretty cool huh? That 500 GB hard drive? 500 * 1,000,000,000 (from the *Giga* part) **bytes** or 500 * 1,000,000,000 * 8 (from the byte part) **bits**!
+
+- A **Transistor** is the the physical representation of the 0 or 1 bit. It is a phsycal digital *switch*. When it is flipped *ON* it used to mean a *1*, and when it is *OFF* it represents a *0*.
 
 Phew! Now that that's out of the way, we can starting talking about some really useful and brilliant uses of these things.  Here is a quick visual summary:
 
@@ -67,7 +69,7 @@ Thus we come upon the The Six Great Ideas in Computer Architecture (so named due
 
 5. **Use the capacities and speeds of different storage systems to make things fast.** This is actually one of the main ideas in this guide. We use this principal to optimize the usage of different kinds of memory (fast vs slow, big vs small)  to cleverly and thirftly use the resources to make programs fast and light. 
 
-6.  **Improve performance** using techniques such as **Parallelism,  Pipelining, and Prediction**. The techiniques are exactly as they sound and will also be discussed in greater detail later on. But the basic idea is to have multiple parts of the computer to split up the work (**parallelism**), stage the processes so that no part of the computer has the excuse that it wasn't told what do (**pipelining**),  and lastly try to predict where along the pipeline things might fail and proactively prevent those failures. 
+6.  **Find ways to improve performance** using techniques such as **Parallelism,  Pipelining, and Prediction**. The techniques will also be discussed in greater detail later on. The basic idea for each is to have multiple parts of the computer to split up the work (**parallelism**), stage the processes so that no part of the computer has the excuse that it wasn't told what do (**pipelining**),  and lastly try to predict where along the pipeline things might fail and proactively prevent those failures (**prediction**). 
 
 With basically these ideas we have managed to come to where computers are today! Pretty impressive, isn't it?
 
@@ -75,52 +77,56 @@ ___
 ### The Hardware Structure of A Computer
 Now we want to try and understand how a modern computer is structured today. We will choose a reletivly simple example, but don't fear if you don't understand what something is. All will come in due time! Thus we begin.
 
-
-___
-### Machine Instructions
-#### MIPS
-
-___
-### Binary Representations
-
 ___
 ### Memory Hierarchy
+#### Introduction
+Types of memory, L1, L2, Cache how they are ordered etc
 #### Structure
+Registers,  Etc.
 #### Direct Mapped Caches
 #### Multilevel Caches 
 ####  AMAT
 #### Flynn Taxonomy
 #### Shared Memory
+#### Virtual Memory
+
+___
+### Machine Instructions
+#### MIPS
+Basics MIPS stuff eg. how it works, instuctions, link to green sheet, and uses
+Converting Binary to MIP
+
+___
+### Binary Representations
+Signed, Unsigned, Two's Complement, Hex, Conversions, Extensions etc.
+
+___
+### The CPU
+Structure, Performance, Multiprocessing
 
 ___
 ### Hardware Level
-#### Logic Gates
+Assembly to Machine, Logic Gates, 
 
 ___
 ### Code Optimization Techniques
 #### Cache Blocking
 #### Pipelining
-#### Amdahl's Law
-
-
+Lead to next section : Parallelism
 
 ___
 ### Parallelism
 #### Introduction
-
+#### Amdahl's Law
 #### Request Level Parallelism 
 ##### Application: MapReduce
-
 #### Data Level Parallelism 
-
 #### Thread Level Parallelism
 ##### OpenMP
-
 #### Instruction Level Parallelism
 
-
 ___
-### Application Warehouse Scale Computing
+### Application: Warehouse Scale Computing
 
 
 
