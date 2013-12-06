@@ -73,6 +73,56 @@ ___
 ### The Hardware Structure of A Computer
 
 
+
+___
+### Machine Instructions
+#### MIPS
+
+___
+### Binary Representations
+
+___
+### Memory Hierarchy
+#### Structure
+#### Direct Mapped Caches
+#### Multilevel Caches 
+####  AMAT
+#### Flynn Taxonomy
+#### Shared Memory
+
+___
+### Hardware Level
+#### Logic Gates
+
+___
+### Code Optimization Techniques
+#### Cache Blocking
+#### Pipelining
+#### Amdahl's Law
+
+
+
+___
+### Parallelism
+#### Introduction
+
+#### Request Level Parallelism 
+##### Application: MapReduce
+
+#### Data Level Parallelism 
+
+#### Thread Level Parallelism
+##### OpenMP
+
+#### Instruction Level Parallelism
+
+
+___
+### Application Warehouse Scale Computing
+
+
+
+
 ___
 ### Colophon
 Written by [Krishna Parashar](http://krishna.im) in Markdown on Byword. Used [Pandoc](http://johnmacfarlane.net/pandoc/) to convert from Markdown to Latex. 

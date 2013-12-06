@@ -12,7 +12,7 @@ The guide itself is written in [MultiMarkdown](http://fletcherpenney.net/multima
 I used [Pandoc](johnmacfarlane.net/pandoc/) to convert the `machine-structures+markdown_mmd.md` into `machine-structures.pdf`. 
 
 Pandoc does this via the command: 
-`pandoc machine-structures+markdown_mmd.md --template=resources/guides.latex --toc -s -o machine-structures.pdf` 
+`pandoc machine-structures+markdown_mmd.md --template=resources/guides.latex --toc --toc-depth=5 -s -o machine-structures.pdf` 
 
 All specialized latex formating is done in the file called `guides.latex` in the `resources` directory. 
 
