@@ -69,7 +69,7 @@ Thus we come upon the The Six Great Ideas in Computer Architecture (so named due
 
 5. **Use the capacities and speeds of different storage systems to make things fast.** This is actually one of the main ideas in this guide. We use this principal to optimize the usage of different kinds of memory (fast vs slow, big vs small)  to cleverly and thirftly use the resources to make programs fast and light. 
 
-6.  **Find ways to improve performance** using techniques such as **Parallelism,  Pipelining, and Prediction**. The techniques will also be discussed in greater detail later on. The basic idea for each is to have multiple parts of the computer to split up the work (**parallelism**), stage the processes so that no part of the computer has the excuse that it wasn't told what do (**pipelining**),  and lastly try to predict where along the pipeline things might fail and proactively prevent those failures (**prediction**). 
+6.  **Find ways to improve performance** using techniques such as **Parallelism,  Pipelining, and Prediction**. The techniques will also be discussed in greater detail later on. The basic idea for each is to have multiple parts of the computer to split up the work (**parallelism**), stage the processes so that no part of the computer has the excuse that it wasn't told what to do (**pipelining**),  and lastly try to predict where along the pipeline things might fail and proactively prevent those failures (**prediction**). 
 
 With basically these ideas we have managed to come to where computers are today! Pretty impressive, isn't it?
 
