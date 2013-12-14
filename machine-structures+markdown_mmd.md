@@ -1,19 +1,18 @@
 % Machine Structures Field Guide
-% Written by Krishna Parashar
-% with the humble help of Tomas Vega
-% Published by [The OCM](http://ocm.io) on December 8th, 2013
+% Written by Krishna Parashar and Tomas Vega
+% Published by [The OCM](http://ocm.io) on December 16th, 2013
 \pagebreak
 
 ## Why This Exists
-While taking my Machine Structures class I found it very difficult to conceptually understand and network the plethora of new found concepts. Thus I wrote up this brief synopsis of the concepts I found useful to understanding the core ideas. This is of course by no means **comprehensive** but I do hope it will provide you with a somewhat better understanding computer architecture. Please feel free to [email me](mailto:me@krishna.im) if you have an questions, suggestions, or corrections. Thanks and enjoy!
+While taking my Machine Structures class I found it very difficult to conceptually understand and network the plethora of new found concepts. Thus I wrote up this brief synopsis of the concepts I found useful to understanding the core ideas. This is of course by no means **comprehensive** but I do hope it will provide you with a somewhat better understanding computer architecture. Please feel free to [email me](mailto:me@krishna.im) if you have questions, suggestions, or corrections. Thanks and enjoy!
 
 ___
 ## Introduction
-Okay, so you want to *understand* Machine Structures. But why in heaven's name to you want to take on this rather insurmountable task? I'll take a wild guess you may be forced into this by your universities’ curriculum task force-namely your professor. Despite the pain in frustration you *may* go through as you dive deeper, believe or not the ideas in this realm are actually quite useful in your everyday life. In fact the advances we have made in machine structures in the past thirty years are the reason the internet exists in the capacity we have grown to love. Because of this progress you can use things like *parallelism* and *pipelining* run an intensive Google search in milliseconds or execute massive projects like mapping the Human Genome to tailor medical care specifically to you. 
-
+Okay, so you want to *understand* Machine Structures. But why in heaven's name to you want to take on this rather insurmountable task? I'll take a wild guess you may be forced into this by your universities’ curriculum task force-namely your professor. Despite the pain in frustration you *may* go through as you dive deeper, believe or not the ideas in this realm are actually quite useful in your everyday life. In fact the advances we have made in machine structures in the past thirty years are the reason the internet exists in the capacity we have grown to love. Because of this progress you can use things like *parallelism* and *pipelining* run an intensive Google search in milliseconds or execute massive projects like mapping the Human Genome to tailor medical care specifically to you.
+ 
 ___
 ## The Big Picture
-So chances are you have already tried a tiny bit of coding. But how does that virtual code turn in to physical phenomenon?  Well, let's start of by defining a few ideas in the computing lexicon:
+So chances are you have already tried a bit of coding. But how does that virtual code turn in to physical phenomenon?  Well, let's start of by defining a few ideas in the computing lexicon:
 
 - An **Operating System (OS)** is a interface between a your program and the hardware that manages the resources and ensures you can do things like use a keyboard, store data in memory, and handle many applications at once.
 
@@ -44,7 +43,7 @@ So chances are you have already tried a tiny bit of coding. But how does that vi
 
 > `` 1000110010100000 ``
 
-> Yep! You guessed it. Its binary! The CPU's structure (discussed lated) need the format to be in just 1's and 0's for reasons in the realm of mathematics and logic. Feel free to look it up, there is a lot of cool information about that.
+> Yep! You guessed it. It's binary! The CPU's structure (discussed lated) need the format to be in just 1's and 0's for reasons in the realm of mathematics and logic. Feel free to look it up, there is a lot of cool information about that.
 
 - A **Binary Digit (Bit)** is well, the each one of those 1's and 0's. Each spot where you can have a digit contains a *bit* so if you have the above  machine language output, that would be 16 **bits**. Now you may be wondering, "Hey I have heard of a **Byte**, is that the same as a *bit*?" Good question!
 
@@ -60,7 +59,7 @@ ___
 ## The Six Great Ideas in Computer Architecture
 It is now that we come upon the *The Six Great Ideas in Computer Architecture* (so named due to their greatness). These topics will form the basis for the rest of this guide.
 
-1. **Design processors using [Moore's Law](http://wikipedia.org/wiki/Moores_law)** which states processing speed and memory capacity will double every two years; an occurrence that is related to the number of transistors in the chip doubling. It was predicted by Gordon Moore in 1965, and has held roughly true thus far. 
+1. **Design processors using [Moore's Law](http://wikipedia.org/wiki/Moores_law)** which states processing speed and memory capacity will double every two years; an occurrence that is related to the number of transistors in the chip doubling. It was predicted by Gordon Moore in 1965, and has held roughly true thus far.
 	
 2. **Abstract as much as possible in order to simplify the design.** This idea relates to what we talked about in the previous section. Split up the responsibility of understanding your code by using a standardized hierarchy (High Level Language -> Assembly Language -> Machine Level) so that each layer takes in an input and passes it down to the next layer. This process makes it infinitely easier to find out where things went or can go wrong. 
 
@@ -85,35 +84,25 @@ ___
 ## Memory Hierarchy
 
 ### Introduction
-> *Ideally one would desire an indefinitely large memory capacity such that any particular... word would be immediately available. ... We are ... forced to recognize the possibility of constructing a hierarchy of memories, each of which has greater capacity that the preceding but which is less quickly accessible.*
+One of the most fascinating ideas in the structure of computers is Memory. We know from the previous section that memory is the part of the computer that allows data to be stored and accessed rather quickly. It is a step down from Cache (in the CPU so super fast) and a step up from Hard Disks (tons of Capacity but takes longer to access). Ideally we would want an indefinitely large memory capacity such that any particular data we want would would be immediately available. However in order to reduce costs (memory is very expensive), we have developed a bunch of tricks and techniques to try to optimize the situation and get the most out of this bad bargain.
 
-#### Principle of Locality
-Programs accesses a relatively portion of their address space at any instant of time. Locality in programs are common even in the simplest program structures. There are two different types of locality:
-
-1. **Temporal Locality** (locality in time): If an item is referenced, it will tend to be referenced again soon
-	* Ex. Loops: Instructions and data are likely to be accessed repeatedly
-2. **Spatial Locality** (locality in space): If an item is referenced, items whose addresses are close by will tend to be referenced soon
-	* Ex. Loops: Instructions are normally accessed sequentially. Another example is sequential access of array elements
-
-___
-
-#### Memory Hierarchy
+### Memory Hierarchy
+So now we come across our first trick *Memory Hierarchy*. This structure (depicted below) that uses multiple levels of memories with different speeds and sizes efficiently in order to present the user with as much memory as is available in the cheapest technology, while providing access at the speed offered by the fastest memory. Unfortunately as the distance from the processor increases, both the size and access time of memories increase.
 
 ![Memory Hierarchy](./resources/images/mem_hierarchy.png)
 
-- **Definition**: A structure that uses multiple levels of memories with different speeds and sizes
-- **Purpose**: Present the user with as much memory as is available in the cheapest technology, while providing access at the speed offered by the fastest memory
-- As the distance from the processor increases, both the size and access time of memories increase
-- Data is similarly hierarchical: a level closer to the processor is generally a subset of any level further away, and all the data is stored at the lowest level
+Data is similarly hierarchical; a level closer to the processor is generally a subset of any level further away, and the entirety of the data is stored at the lowest level (generally a hard drive)
 
-##### How Memory Hierarchy takes advantage of the Principle of Locality
-- **Temporal Locality**: Keeps more recently accessed data items closer to the processor
--  **Spatial Locality**: Moving blocks consisting of multiple contiguous 
+### Principle of Locality
+So in order to allow programs to run efficiently, a technique we take advantage of is the *Principles of Locality*. Programs accesses a relatively portion of their address space at any instant of time. We take advantage of the *Memory Hierarchy* from above. There are two different types of locality:
 
-Memory Hierarchy uses smaller and faster memory technologies close to the processor. Thus, accesses that hit in the highest level of the hierarchy can be processed quickly. Accesses that miss go to lower levels of the hierarchy which are larger but slower.
+1. **Temporal Locality** (locality in time) *is the ideas that if an item is referenced we will assume it will tend to be referenced again soon.* An Example of this is *Loops* in which that variables and functions are likely to be accessed repeatedly so we save them closer to the processing.
+2. **Spatial Locality** (locality in space) *is the idea that if an item is referenced, items whose addresses are close by will probably be referenced sometime soon.* Again we can use loops as an example, since we know that instructions are normally accessed sequentially so we can predict the next iteration and store it when we access the previous iteration. We can also think of this using array elements. We can save the nearby array elements when we get one of the elements with hopes that it will come in handy. It may seem a bit counterintuitive but it really does work!
 
-##### Memory Access
-A memory hierarchy can consist of multiple levels, but data is copied between only two adjacent levels at a time. Thus, to convey memory access in its simplest form only two levels will be analyzed.
+In short by using these two ideas (*Memory Hierarchy* and the  *Principle of Locality*) uses smaller and faster memory technologies close to the processor. Thus, accesses that hit in the highest level of the hierarchy can be processed quickly. Accesses that miss go to lower levels of the hierarchy which are larger but slower.
+
+### Memory Access <- NEEDS WORK
+A memory hierarchy usually consist of many different levels as shown in the *Memory Hierarchy* section. However Data can only be copied between only two adjacent levels at a time. Thus to show how this data is accessed we will show how one particular instance between two levels is done. 
 
 ![Pair of levels in the memory hierarchy](./resources/images/pair_mem_hierarchy.png)
 
@@ -121,30 +110,15 @@ A memory hierarchy can consist of multiple levels, but data is copied between on
 
 Every pair of levels in the memory hierarchy can be thought of as having an:
 
-- **Upper Level**: 
-	- Closer to the processor
-	- Smaller, faster, and more expensive than the lower level
-	- Data in this level is generally a subset of the lower level
-- **Lower Level**
-
-##### Important Keywords
-
-- *Hit*: When data requested by the processors is found in some block in the upper level
-- *Hit Rate*: Fraction of memory accesses found in a level of the memory hierarchy
-- *Hit Time*: Time required to access a level of the memory hierarchy, including the time needed to determine whether the access time is a hit or a miss
-- *Miss*: When data requested by the processor is not found in the upper level -> lower level accessed to retrieve the block containing the requested data
-- *Miss Rate*: Fraction of memory accesses not found in a level of the memory hierarchy (1 - Hit Rate)
-- *Miss Penalty*: Time required to fetch a block into a level of the memory hierarchy from the lower level, including
-	- time to access the block
-	- transmit it from one level to the other
-	- insert it in the level that experienced the miss
-	- pass the block to the requestor
-
-* * *
+* **Upper Level**: 
+	* Closer to the processor
+	* Smaller, faster, and more expensive than the lower level
+	* Data in this level is generally a subset of the lower level
+*  **Lower Level**
 
 ### Memory Technologies
 
-Four Memory Technologies used today in Memory Hierarchies
+Let’s discuss how these systems are used today. We have here Four Memory Technologies that probably are in the computer you have!
 
 Memory Technology	|	Typical Access Time (ns)		|	$ per GiB in 2012
 -----------------------------	|	----------------------------------		|	-------------------------
@@ -155,27 +129,27 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 
 #### SRAM Technology
 
-- Static Random Access Memory
-- Integrated circuits that form memory arrays 
-- Usually has a single access port that can provide either a read or a write
-- Fixed access time to any datum (read/write access times may differ)
-- Typically uses 6-8 transistors per bit to prevent information disruption when read
-- As long as power is applied the value can be kept indefinitely
+* Static Random Access Memory
+* Integrated circuits that form memory arrays 
+* Usually has a single access port that can provide either a read or a write
+* Fixed access time to any datum (read/write access times may differ)
+* Typically uses 6-8 transistors per bit to prevent information disruption when read
+* As long as power is applied the value can be kept indefinitely
 
 #### DRAM Technology
 
-- Dynamic Random Access Memory
-- Value keep in a cell is stored as a charge in a capacitor
-- Single transistor is used to access stored charge (either to read or overwrite the stored charge)
-	- Because it uses one transistor per bit of storage, it is much denser and cheaper than SRAM
-- Stores charge on a capacitor: it cannot be kept indefinitely and must be periodically refreshed
-- *Refresh*: contents from an entire row are read and immediately written back to the same row
+* Dynamic Random Access Memory
+* Value keep in a cell is stored as a charge in a capacitor
+* Single transistor is used to access stored charge (either to read or overwrite the stored charge)
+	* Because it uses one transistor per bit of storage, it is much denser and cheaper than SRAM
+* Stores charge on a capacitor: it cannot be kept indefinitely and must be periodically refreshed
+* *Refresh*: contents from an entire row are read and immediately written back to the same row
 
-##### Performance Specifications
-- Buffer Rows:	
-	- Acts like a SRAM: changing the address enables random bits access to be accessed until the next row is accessed
-- Wider Chips:
-	- Improves memory bandwidth
+### Performance Specifications <- Why? Seems Unnecessary.
+* Buffer Rows:	
+	* Acts like a SRAM: changing the address enables random bits access to be accessed until the next row is accessed
+* Wider Chips:
+	* Improves memory bandwidth
 - Organization:
 	- Modern DRAMs are organized in banks
 	- *Bank*: Series of rows
@@ -197,17 +171,15 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 	- Accesses rotation: Enables sending addresses to several banks to read/write simultaneously
 	- Bandwidth = Bandwidth x (# of banks)
 
-#### Flash Memory
+### Flash Memory
 
-- A type of EEPROM (Electrically Erasable Programmable Read-Only Memory)
+### Disk Memory
 - Wear Leveling
 	- Like other EEPROM technologies, writes can wear out flash memory bits
 	- To handle this a controller is used to spread the writes by remapping blocks that have been written many times to less used blocks
 	- With this technology mobile devices are very unlikely to exceed flash's write limits
 	- To improve performance even more, incorrectly manufactured memory cells are mapped out
 	- Wear Leveling lowers flash's potential performance, but is needed unless higher-level software monitors block wear
-
-#### Disk Memory
 
 - Magnetic Hard Disks consist of a collection of platters
 - Metal platters are covered with magnetic recording material on both sides
@@ -217,36 +189,42 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 	- The smallest amount of information that is read/written on a disk
 - Read/Write mechanism
 	- Read-Write Head: Movable arm containing a small electromagnetic coil
+
 	- RW-Heads for each surface are connected together and move in conjunction
 	- Thus, every head is over the same track of every surface
 	- Cylinder: All tracks under the heads at a given point on all surfaces
-	-
-- - -
+	- Each surface has one arm containing two RW-Heads, one facing up and one facing down
 
-### Caches
-
-#### Measuring Cache
-
-#### Improving Cache Performance
-
-#### Measuring 
+### Virtual Memory
+>>>>>>> original/master
 
 
+___
+## Caches
 
 ### Structure
 Registers,  Etc.
+
+### Hitting and Missing <- NEEDS WORK
+We know from the *The Hardware Structure of A Computer* section that caches live in the CPU and  live near the top of Memory Hierarchy pyramid (registers are faster). So before we move on and discuss caches, we want to clear up some important terminology.
+
+- *Hit*: When data requested by the processors is found in some block in the upper level
+- *Hit Rate*: Fraction of memory accesses found in a level of the memory hierarchy
+- *Hit Time*: Time required to access a level of the memory hierarchy, including the time needed to determine whether the access time is a hit or a miss
+- *Miss*: When data requested by the processor is not found in the upper level -> lower level accessed to retrieve the block containing the requested data
+- *Miss Rate*: Fraction of memory accesses not found in a level of the memory hierarchy (1 - Hit Rate)
+- *Miss Penalty*: Time required to fetch a block into a level of the memory hierarchy from the lower level, including
+	— time to access the block
+	— transmit it from one level to the other
+	— insert it in the level that experienced the miss 
+	— pass the block to the requestor
+### AMAT
 
 ### Direct Mapped Caches
 
 ### Multilevel Caches 
 
-###  AMAT
-
-### Flynn Taxonomy
-
-### Shared Memory
-
-### Virtual Memory
+### Set Associative Caches
 
 ___
 ## Machine Instructions
@@ -261,18 +239,20 @@ ___
 Signed, Unsigned, Two's Complement, Hex, Conversions, Extensions etc.
 
 ___
-## The CPU
-### Structure
-Purpose? Multiprocessing
-### Performance 
-CPU Time, CPI, Instruction Count, Clock Cycle time?
-
-
-___
 ## Hardware Level
 ### Introduction
+### Transistors and Logic Gates
+### Boolean Algebra
+### 
 Assembly to Machine, Logic Gates, 
 [Useful Processor Stuff](https://www.cise.ufl.edu/~mssz/CompOrg/CDA-proc.html)
+
+___
+## The CPU
+### Structure
+Purpose? Multiprocessing ALU, shifters, Reg files, Muxing, demuxming, FSM 
+### Performance 
+CPU Time, CPI, Instruction Count, Clock Cycle time?
 
 ___
 ## Code Optimization Techniques
@@ -288,14 +268,18 @@ ___
 ### Request Level Parallelism 
 #### Application: MapReduce
 ### Data Level Parallelism 
+### Flynn Taxonomy
 ### Thread Level Parallelism
+### Shared Memory
 ### Application: OpenMP (?)
 ### Instruction Level Parallelism
 ### Application: Warehouse Scale Computing
 
+___
 ## Redundancy 
 ECC, RAID, Stuff from Professor Katz's lecture.  
 
+___
 ## Virtual Machines (?)
 
 
