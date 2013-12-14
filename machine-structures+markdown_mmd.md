@@ -97,12 +97,15 @@ Programs accesses a relatively portion of their address space at any instant of 
 * * *
 
 #### Memory Hierarchy
+
+![Memory Hierarchy](./resources/images/mem_hierarchy.png)
+
 * **Definition**: A structure that uses multiple levels of memories with different speeds and sizes
 * **Purpose**: Present the user with as much memory as is available in the cheapest technology, while providing access at the speed offered by the fastest memory
 * As the distance from the processor increases, both the size and access time of memories increase
 * Data is similarly hierarchical: a level closer to the processor is generally a subset of any level further away, and all the data is stored at the lowest level
 
-#### How Memory Hierarchy takes advantage of the Principle of Locality
+##### How Memory Hierarchy takes advantage of the Principle of Locality
 * **Temporal Locality**: Keeps more recently accessed data items closer to the processor
 *  **Spatial Locality**: Moving blocks consisting of multiple contiguous 
 
@@ -123,7 +126,7 @@ Every pair of levels in the memory hierarchy can be thought of as having an:
 	* Data in this level is generally a subset of the lower level
 *  **Lower Level**
 
-**Important Keywords**
+##### Important Keywords
 
 * *Hit*: When data requested by the processors is found in some block in the upper level
 * *Hit Rate*: Fraction of memory accesses found in a level of the memory hierarchy
@@ -136,6 +139,63 @@ Every pair of levels in the memory hierarchy can be thought of as having an:
 	* insert it in the level that experienced the miss
 	* pass the block to the requestor
 
+* * *
+
+### Memory Technologies
+
+Four Memory Technologies used today in Memory Hierarchies
+
+Memory Technology	|	Typical Access Time (ns)		|	$ per GiB in 2012
+-----------------------------	|	----------------------------------		|	-------------------------
+SRAM								|	0.5-2.5									|	500-1000
+DRAM								|	50-70										|	10-20
+Flash								|	5,000-50,000						|	0.75-1.00
+Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
+
+#### SRAM Technology
+
+* Static Random Access Memory
+* Integrated circuits that form memory arrays 
+* Usually has a single access port that can provide either a read or a write
+* Fixed access time to any datum (read/write access times may differ)
+* Typically uses 6-8 transistors per bit to prevent information disruption when read
+* As long as power is applied the value can be kept indefinitely
+
+#### DRAM Technology
+
+* Dynamic Random Access Memory
+* Value keep in a cell is stored as a charge in a capacitor
+* Single transistor is used to access stored charge (either to read or overwrite the stored charge)
+	* Because it uses one transistor per bit of storage, it is much denser and cheaper than SRAM
+* Stores charge on a capacitor: it cannot be kept indefinitely and must be periodically refreshed
+* *Refresh*: contents from an entire row are read and immediately written back to the same row
+
+##### Performance Specifications
+* Buffer Rows:	
+	* Acts like a SRAM: changing the address enables random bits access to be accessed until the next row is accessed
+* Wider Chips:
+	* Improves memory bandwidth
+* Clocks Added:
+	* SDRAM (Synchronous DRAM)
+	* Eliminates synchronization time between memory and processor
+	* Speed Advantage: transfers bits in the burst without having to specify additional address bits
+	* DDR SDRAM (Double Data Rate):
+		* Data transfers on both the rising and falling edge of the clock (twice bandwidth)
+		* Latest version: DDR4 can do 3200 million transfers per second (1600 MHz clock)
+
+#### Flash Memory
+
+#### Disk Memory
+
+* * *
+
+### Caches
+
+#### Measuring Cache
+
+#### Improving Cache Performance
+
+#### Measuring 
 
 
 
