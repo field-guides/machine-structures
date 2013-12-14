@@ -217,8 +217,10 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 	- The smallest amount of information that is read/written on a disk
 - Read/Write mechanism
 	- Read-Write Head: Movable arm containing a small electromagnetic coil
-	- Each surface has one arm containing two RW-Heads, one facing up and one facing down
-
+	- RW-Heads for each surface are connected together and move in conjunction
+	- Thus, every head is over the same track of every surface
+	- Cylinder: All tracks under the heads at a given point on all surfaces
+	-
 - - -
 
 ### Caches
