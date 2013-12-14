@@ -61,7 +61,7 @@ It is now that we come upon the *The Six Great Ideas in Computer Architecture* (
 
 1. **Design processors using [Moore's Law](http://wikipedia.org/wiki/Moores_law)** which states processing speed and memory capacity will double every two years; an occurrence that is related to the number of transistors in the chip doubling. It was predicted by Gordon Moore in 1965, and has held roughly true thus far. 
 	
-2. **Abstract as much as possible in order to simplify the design.** This idea relates to what we talked about in the previous section. Split up the responsibility of understanding your code by using a standardized hierarchy (High Level Language -- > Assembly Language -- > Machine Level) so that each layer takes in an input and passes it down to the next layer. This process makes it infinitely easier to find out where things went or can go wrong. 
+2. **Abstract as much as possible in order to simplify the design.** This idea relates to what we talked about in the previous section. Split up the responsibility of understanding your code by using a standardized hierarchy (High Level Language -> Assembly Language -> Machine Level) so that each layer takes in an input and passes it down to the next layer. This process makes it infinitely easier to find out where things went or can go wrong. 
 
 3. **Design so that the most common case is fast.** This one should be rather intuitive. Instead of wasting time, energy, and of course money trying to optimize so that every part of the program (down to the tiny edge cases) is blazing fast, why not  just make the most used cases faster? Otherwise you'll end up with a lot of code that is probably only trivially faster than if you just made the most often used cases faster.
 
@@ -131,7 +131,7 @@ Every pair of levels in the memory hierarchy can be thought of as having an:
 * *Hit*: When data requested by the processors is found in some block in the upper level
 * *Hit Rate*: Fraction of memory accesses found in a level of the memory hierarchy
 * *Hit Time*: Time required to access a level of the memory hierarchy, including the time needed to determine whether the access time is a hit or a miss
-* *Miss*: When data requested by the processor is not found in the upper level -- > lower level accessed to retrieve the block containing the requested data
+* *Miss*: When data requested by the processor is not found in the upper level -> lower level accessed to retrieve the block containing the requested data
 * *Miss Rate*: Fraction of memory accesses not found in a level of the memory hierarchy (1 - Hit Rate)
 * *Miss Penalty*: Time required to fetch a block into a level of the memory hierarchy from the lower level, including
 	* time to access the block
