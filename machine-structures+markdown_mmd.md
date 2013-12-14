@@ -82,8 +82,45 @@ Talk about the components, CPU, SRAM, DRAM, Hard Disks, I/O
 
 ___
 ## Memory Hierarchy
+
 ### Introduction
-Types of memory, L1, L2, Cache how they are ordered etc
+> *Ideally one would desire an idefinitely large memory capacity such that any particular... word would be immediately available. ... We are ... forced to recognize the possibility of constructing a hierarchy of memories, each of which has greater capacity that the preceding but which is less quickly accessible.*
+
+#### Principle of Locality
+Programs accesss a relatively portion of their address space at any instant of time. Locality in programs are common even in the simplest program structures. There are two diffrent types of locality:
+
+1. **Temporal Locality** (locality in time): If an item is referenced, it will tend to be referenced again soon
+	* Ex. Loops: Instructions and data are likely to be accessed repeteadly
+2. **Spatial Locality** (locality in space): If an item is referenced, items whose addresses are close by will tend to be referenced soon
+	* Ex. Loops: Instructions are normally accessed sequentially. Another example is sequential access of array elements
+
+* * *
+
+#### Memory Hierarchy
+* **Definition**: A structure that uses multiple levels of memories with different speeds and sizes
+* **Purpose**: Present the user with as much memory as is available in the cheapest technology, while providing access at the speed offered by the fastest memory
+* As the distance from the processor increases, both the size and access time of memories increase
+* Data is similarly hierarchical: a level closer to the processor is generally a subset of any level further away, and all the data is stored at the lowest level
+
+##### Memory Access
+A memory hierarchy can consist of multiple levels, but data is copied between only two adjacent levels at a time. Thus, to convey memory access in its simplest form only two levels will be analyzed.
+
+![Pair of levels in the memory hierarchy](./resources/images/pair_mem_hierarchy.png)
+
+**Block (Line)**: The minimum unit of information that can be either present or not present in cache. This is shown in the image above as the red square.
+
+Every pair of levels in the memory hierarchy can be thought of as having an:
+
+* **Upper Level**: 
+	* Closer to the processor
+	* Smaller, faster, and more expensive than the lower level
+	* Data in this level is generally a subset of the lower level
+*  **Lower Level**
+
+
+If the data requested b
+
+If data 
 
 ### Structure
 Registers,  Etc.
