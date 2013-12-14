@@ -61,7 +61,7 @@ It is now that we come upon the *The Six Great Ideas in Computer Architecture* (
 
 1. **Design processors using [Moore's Law](http://wikipedia.org/wiki/Moores_law)** which states processing speed and memory capacity will double every two years; an occurrence that is related to the number of transistors in the chip doubling. It was predicted by Gordon Moore in 1965, and has held roughly true thus far. 
 	
-2. **Abstract as much as possible in order to simplify the design.** This idea relates to what we talked about in the previous section. Split up the responsibility of understanding your code by using a standardized hierarchy (High Level Language -- > Assembly Language -- > Machine Level) so that each layer takes in an input and passes it down to the next layer. This process makes it infinitely easier to find out where things went or can go wrong. 
+2. **Abstract as much as possible in order to simplify the design.** This idea relates to what we talked about in the previous section. Split up the responsibility of understanding your code by using a standardized hierarchy (High Level Language -> Assembly Language -> Machine Level) so that each layer takes in an input and passes it down to the next layer. This process makes it infinitely easier to find out where things went or can go wrong. 
 
 3. **Design so that the most common case is fast.** This one should be rather intuitive. Instead of wasting time, energy, and of course money trying to optimize so that every part of the program (down to the tiny edge cases) is blazing fast, why not  just make the most used cases faster? Otherwise you'll end up with a lot of code that is probably only trivially faster than if you just made the most often used cases faster.
 
@@ -97,12 +97,15 @@ Programs accesses a relatively portion of their address space at any instant of 
 * * *
 
 #### Memory Hierarchy
+
+![Memory Hierarchy](./resources/images/mem_hierarchy.png)
+
 * **Definition**: A structure that uses multiple levels of memories with different speeds and sizes
 * **Purpose**: Present the user with as much memory as is available in the cheapest technology, while providing access at the speed offered by the fastest memory
 * As the distance from the processor increases, both the size and access time of memories increase
 * Data is similarly hierarchical: a level closer to the processor is generally a subset of any level further away, and all the data is stored at the lowest level
 
-#### How Memory Hierarchy takes advantage of the Principle of Locality
+##### How Memory Hierarchy takes advantage of the Principle of Locality
 * **Temporal Locality**: Keeps more recently accessed data items closer to the processor
 *  **Spatial Locality**: Moving blocks consisting of multiple contiguous 
 
@@ -123,12 +126,12 @@ Every pair of levels in the memory hierarchy can be thought of as having an:
 	* Data in this level is generally a subset of the lower level
 *  **Lower Level**
 
-**Important Keywords**
+##### Important Keywords
 
 * *Hit*: When data requested by the processors is found in some block in the upper level
 * *Hit Rate*: Fraction of memory accesses found in a level of the memory hierarchy
 * *Hit Time*: Time required to access a level of the memory hierarchy, including the time needed to determine whether the access time is a hit or a miss
-* *Miss*: When data requested by the processor is not found in the upper level -- > lower level accessed to retrieve the block containing the requested data
+* *Miss*: When data requested by the processor is not found in the upper level -> lower level accessed to retrieve the block containing the requested data
 * *Miss Rate*: Fraction of memory accesses not found in a level of the memory hierarchy (1 - Hit Rate)
 * *Miss Penalty*: Time required to fetch a block into a level of the memory hierarchy from the lower level, including
 	* time to access the block
@@ -136,6 +139,63 @@ Every pair of levels in the memory hierarchy can be thought of as having an:
 	* insert it in the level that experienced the miss
 	* pass the block to the requestor
 
+* * *
+
+### Memory Technologies
+
+Four Memory Technologies used today in Memory Hierarchies
+
+Memory Technology	|	Typical Access Time (ns)		|	$ per GiB in 2012
+-----------------------------	|	----------------------------------		|	-------------------------
+SRAM								|	0.5-2.5									|	500-1000
+DRAM								|	50-70										|	10-20
+Flash								|	5,000-50,000						|	0.75-1.00
+Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
+
+#### SRAM Technology
+
+* Static Random Access Memory
+* Integrated circuits that form memory arrays 
+* Usually has a single access port that can provide either a read or a write
+* Fixed access time to any datum (read/write access times may differ)
+* Typically uses 6-8 transistors per bit to prevent information disruption when read
+* As long as power is applied the value can be kept indefinitely
+
+#### DRAM Technology
+
+* Dynamic Random Access Memory
+* Value keep in a cell is stored as a charge in a capacitor
+* Single transistor is used to access stored charge (either to read or overwrite the stored charge)
+	* Because it uses one transistor per bit of storage, it is much denser and cheaper than SRAM
+* Stores charge on a capacitor: it cannot be kept indefinitely and must be periodically refreshed
+* *Refresh*: contents from an entire row are read and immediately written back to the same row
+
+##### Performance Specifications
+* Buffer Rows:	
+	* Acts like a SRAM: changing the address enables random bits access to be accessed until the next row is accessed
+* Wider Chips:
+	* Improves memory bandwidth
+* Clocks Added:
+	* SDRAM (Synchronous DRAM)
+	* Eliminates synchronization time between memory and processor
+	* Speed Advantage: transfers bits in the burst without having to specify additional address bits
+	* DDR SDRAM (Double Data Rate):
+		* Data transfers on both the rising and falling edge of the clock (twice bandwidth)
+		* Latest version: DDR4 can do 3200 million transfers per second (1600 MHz clock)
+
+#### Flash Memory
+
+#### Disk Memory
+
+* * *
+
+### Caches
+
+#### Measuring Cache
+
+#### Improving Cache Performance
+
+#### Measuring 
 
 
 
