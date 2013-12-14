@@ -59,7 +59,7 @@ ___
 ## The Six Great Ideas in Computer Architecture
 It is now that we come upon the The Six Great Ideas in Computer Architecture (so named due to their greatness). These topics will form the basis for the rest of this guide.
 
-1. **Design processors using [Moore's Law](http://wikipedia.org/wiki/Moores_law)** which states processing speed and memory capacity will double every two years; an occurrence that is related to the number of transistors in the chip doubling. It was predicted by Gordon Moore in 1965, and has held roughly true thus far. 
+1. **Design processors using [Moore's Law](http://wikipedia.org/wiki/Moores_law)** which states processing speed and memory capacity will double every two years; an occurrence that is related to the number of transistors in the chip doubling. It was predicted by Gordon Moore in 1965, and has held roughly true thus far.
 	
 2. **Abstract as much as possible in order to simplify the design.** This idea relates to what we talked about in the previous section. Split up the responsibility of understanding your code by using a standardized hierarchy (High Level Language -> Assembly Language -> Machine Level) so that each layer takes in an input and passes it down to the next layer. This process makes it infinitely easier to find out where things went or can go wrong. 
 
@@ -92,6 +92,8 @@ Registers,  Etc.
 
 ### Multilevel Caches 
 
+### Set Associative Caches
+
 ###  AMAT
 
 ### Flynn Taxonomy
@@ -113,18 +115,20 @@ ___
 Signed, Unsigned, Two's Complement, Hex, Conversions, Extensions etc.
 
 ___
-## The CPU
-### Structure
-Purpose? Multiprocessing
-### Performance 
-CPU Time, CPI, Instruction Count, Clock Cycle time?
-
-
-___
 ## Hardware Level
 ### Introduction
+### Transistors and Logic Gates
+### Boolean Algebra
+### 
 Assembly to Machine, Logic Gates, 
 [Useful Processor Stuff](https://www.cise.ufl.edu/~mssz/CompOrg/CDA-proc.html)
+
+___
+## The CPU
+### Structure
+Purpose? Multiprocessing ALU, shifters, Reg files, Muxing, demuxming, FSM 
+### Performance 
+CPU Time, CPI, Instruction Count, Clock Cycle time?
 
 ___
 ## Code Optimization Techniques
