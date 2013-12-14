@@ -1,5 +1,6 @@
 % Machine Structures Field Guide
 % Written by Krishna Parashar
+% with the humble help of Tomas Vega
 % Published by [The OCM](http://ocm.io) on December 8th, 2013
 \pagebreak
 
@@ -94,20 +95,20 @@ Programs accesses a relatively portion of their address space at any instant of 
 2. **Spatial Locality** (locality in space): If an item is referenced, items whose addresses are close by will tend to be referenced soon
 	* Ex. Loops: Instructions are normally accessed sequentially. Another example is sequential access of array elements
 
-* * *
+___
 
 #### Memory Hierarchy
 
 ![Memory Hierarchy](./resources/images/mem_hierarchy.png)
 
-* **Definition**: A structure that uses multiple levels of memories with different speeds and sizes
-* **Purpose**: Present the user with as much memory as is available in the cheapest technology, while providing access at the speed offered by the fastest memory
-* As the distance from the processor increases, both the size and access time of memories increase
-* Data is similarly hierarchical: a level closer to the processor is generally a subset of any level further away, and all the data is stored at the lowest level
+- **Definition**: A structure that uses multiple levels of memories with different speeds and sizes
+- **Purpose**: Present the user with as much memory as is available in the cheapest technology, while providing access at the speed offered by the fastest memory
+- As the distance from the processor increases, both the size and access time of memories increase
+- Data is similarly hierarchical: a level closer to the processor is generally a subset of any level further away, and all the data is stored at the lowest level
 
 ##### How Memory Hierarchy takes advantage of the Principle of Locality
-* **Temporal Locality**: Keeps more recently accessed data items closer to the processor
-*  **Spatial Locality**: Moving blocks consisting of multiple contiguous 
+- **Temporal Locality**: Keeps more recently accessed data items closer to the processor
+-  **Spatial Locality**: Moving blocks consisting of multiple contiguous 
 
 Memory Hierarchy uses smaller and faster memory technologies close to the processor. Thus, accesses that hit in the highest level of the hierarchy can be processed quickly. Accesses that miss go to lower levels of the hierarchy which are larger but slower.
 
@@ -120,24 +121,24 @@ A memory hierarchy can consist of multiple levels, but data is copied between on
 
 Every pair of levels in the memory hierarchy can be thought of as having an:
 
-* **Upper Level**: 
-	* Closer to the processor
-	* Smaller, faster, and more expensive than the lower level
-	* Data in this level is generally a subset of the lower level
-*  **Lower Level**
+- **Upper Level**: 
+	- Closer to the processor
+	- Smaller, faster, and more expensive than the lower level
+	- Data in this level is generally a subset of the lower level
+- **Lower Level**
 
 ##### Important Keywords
 
-* *Hit*: When data requested by the processors is found in some block in the upper level
-* *Hit Rate*: Fraction of memory accesses found in a level of the memory hierarchy
-* *Hit Time*: Time required to access a level of the memory hierarchy, including the time needed to determine whether the access time is a hit or a miss
-* *Miss*: When data requested by the processor is not found in the upper level -> lower level accessed to retrieve the block containing the requested data
-* *Miss Rate*: Fraction of memory accesses not found in a level of the memory hierarchy (1 - Hit Rate)
-* *Miss Penalty*: Time required to fetch a block into a level of the memory hierarchy from the lower level, including
-	* time to access the block
-	* transmit it from one level to the other
-	* insert it in the level that experienced the miss
-	* pass the block to the requestor
+- *Hit*: When data requested by the processors is found in some block in the upper level
+- *Hit Rate*: Fraction of memory accesses found in a level of the memory hierarchy
+- *Hit Time*: Time required to access a level of the memory hierarchy, including the time needed to determine whether the access time is a hit or a miss
+- *Miss*: When data requested by the processor is not found in the upper level -> lower level accessed to retrieve the block containing the requested data
+- *Miss Rate*: Fraction of memory accesses not found in a level of the memory hierarchy (1 - Hit Rate)
+- *Miss Penalty*: Time required to fetch a block into a level of the memory hierarchy from the lower level, including
+	- time to access the block
+	- transmit it from one level to the other
+	- insert it in the level that experienced the miss
+	- pass the block to the requestor
 
 * * *
 
@@ -154,27 +155,36 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 
 #### SRAM Technology
 
-* Static Random Access Memory
-* Integrated circuits that form memory arrays 
-* Usually has a single access port that can provide either a read or a write
-* Fixed access time to any datum (read/write access times may differ)
-* Typically uses 6-8 transistors per bit to prevent information disruption when read
-* As long as power is applied the value can be kept indefinitely
+- Static Random Access Memory
+- Integrated circuits that form memory arrays 
+- Usually has a single access port that can provide either a read or a write
+- Fixed access time to any datum (read/write access times may differ)
+- Typically uses 6-8 transistors per bit to prevent information disruption when read
+- As long as power is applied the value can be kept indefinitely
 
 #### DRAM Technology
 
-* Dynamic Random Access Memory
-* Value keep in a cell is stored as a charge in a capacitor
-* Single transistor is used to access stored charge (either to read or overwrite the stored charge)
-	* Because it uses one transistor per bit of storage, it is much denser and cheaper than SRAM
-* Stores charge on a capacitor: it cannot be kept indefinitely and must be periodically refreshed
-* *Refresh*: contents from an entire row are read and immediately written back to the same row
+- Dynamic Random Access Memory
+- Value keep in a cell is stored as a charge in a capacitor
+- Single transistor is used to access stored charge (either to read or overwrite the stored charge)
+	- Because it uses one transistor per bit of storage, it is much denser and cheaper than SRAM
+- Stores charge on a capacitor: it cannot be kept indefinitely and must be periodically refreshed
+- *Refresh*: contents from an entire row are read and immediately written back to the same row
 
 ##### Performance Specifications
-* Buffer Rows:	
-	* Acts like a SRAM: changing the address enables random bits access to be accessed until the next row is accessed
-* Wider Chips:
-	* Improves memory bandwidth
+- Buffer Rows:	
+	- Acts like a SRAM: changing the address enables random bits access to be accessed until the next row is accessed
+- Wider Chips:
+	- Improves memory bandwidth
+- Organization:
+	- Modern DRAMs are organized in banks
+	- *Bank*: Series of rows
+		* Pre-charge opens/closes a bank
+	- DDR3: 4 banks
+	- *Act *: Signal sent with row addresses that activates the transfer of the row to the buffer
+	- When row is in the  buffer, it can be transferred by
+		* successive column addresses at whatever the width of the DRAM is (typically 4, 8 or 16)
+		* specifying a block transfer and the starting address
 * Clocks Added:
 	* SDRAM (Synchronous DRAM)
 	* Eliminates synchronization time between memory and processor
@@ -182,8 +192,14 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 	* DDR SDRAM (Double Data Rate):
 		* Data transfers on both the rising and falling edge of the clock (twice bandwidth)
 		* Latest version: DDR4 can do 3200 million transfers per second (1600 MHz clock)
+* Address Interleaving
+	* Instead of just a faster row buffer, DRAM can read from or write to multiple banks, each having its own row buffer
+	* Accesses rotation: Enables sending addresses to several banks to read/write simultaneously
+	* Bandwidth = Bandwidth x (# of banks)
 
 #### Flash Memory
+
+* A type of EEPROM (Electrically Erasable Programmable Read-Only Memory
 
 #### Disk Memory
 
