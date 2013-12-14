@@ -183,27 +183,43 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 	- DDR3: 4 banks
 	- *Act *: Signal sent with row addresses that activates the transfer of the row to the buffer
 	- When row is in the  buffer, it can be transferred by
-		* successive column addresses at whatever the width of the DRAM is (typically 4, 8 or 16)
-		* specifying a block transfer and the starting address
-* Clocks Added:
-	* SDRAM (Synchronous DRAM)
-	* Eliminates synchronization time between memory and processor
-	* Speed Advantage: transfers bits in the burst without having to specify additional address bits
-	* DDR SDRAM (Double Data Rate):
-		* Data transfers on both the rising and falling edge of the clock (twice bandwidth)
-		* Latest version: DDR4 can do 3200 million transfers per second (1600 MHz clock)
-* Address Interleaving
-	* Instead of just a faster row buffer, DRAM can read from or write to multiple banks, each having its own row buffer
-	* Accesses rotation: Enables sending addresses to several banks to read/write simultaneously
-	* Bandwidth = Bandwidth x (# of banks)
+		- Successive column addresses at whatever the width of the DRAM is (typically 4, 8 or 16)
+		- Specifying a block transfer and the starting address
+- Clocks Added:
+	- SDRAM (Synchronous DRAM)
+	- Eliminates synchronization time between memory and processor
+	- Speed Advantage: transfers bits in the burst without having to specify additional address bits
+	- DDR SDRAM (Double Data Rate):
+		- Data transfers on both the rising and falling edge of the clock (twice bandwidth)
+		- Latest version: DDR4 can do 3200 million transfers per second (1600 MHz clock)
+- Address Interleaving
+	- Instead of just a faster row buffer, DRAM can read from or write to multiple banks, each having its own row buffer
+	- Accesses rotation: Enables sending addresses to several banks to read/write simultaneously
+	- Bandwidth = Bandwidth x (# of banks)
 
 #### Flash Memory
 
-* A type of EEPROM (Electrically Erasable Programmable Read-Only Memory
+- A type of EEPROM (Electrically Erasable Programmable Read-Only Memory)
+- Wear Leveling
+	- Like other EEPROM technologies, writes can wear out flash memory bits
+	- To handle this a controller is used to spread the writes by remapping blocks that have been written many times to less used blocks
+	- With this technology mobile devices are very unlikely to exceed flash's write limits
+	- To improve performance even more, incorrectly manufactured memory cells are mapped out
+	- Wear Leveling lowers flash's potential performance, but is needed unless higher-level software monitors block wear
 
 #### Disk Memory
 
-* * *
+- Magnetic Hard Disks consist of a collection of platters
+- Metal platters are covered with magnetic recording material on both sides
+- Track: One of thousands of concentric circles that makes up the surface of a magnetic disk
+- Sector: 
+	- One of the segments that make up a track on a magnetic disk
+	- The smallest amount of information that is read/written on a disk
+- Read/Write mechanism
+	- Read-Write Head: Movable arm containing a small electromagnetic coil
+	- Each surface has one arm containing two RW-Heads, one facing up and one facing down
+
+- - -
 
 ### Caches
 
