@@ -4,7 +4,7 @@
 \pagebreak
 
 ## Why This Exists
-While taking my Machine Structures class I found it very difficult to conceptually understand and network the plethora of new found concepts. Thus I wrote up this brief synopsis of the concepts I found useful to understanding the core ideas. This is of course by no means **comprehensive** but I do hope it will provide you with a somewhat better understanding computer architecture. Please feel free to [email me](mailto:me@krishna.im) if you have an questions, suggestions, or corrections. Thanks and enjoy!
+While taking my Machine Structures class I found it very difficult to conceptually understand and network the plethora of new found concepts. Thus I wrote up this brief synopsis of the concepts I found useful to understanding the core ideas. This is of course by no means **comprehensive** but I do hope it will provide you with a somewhat better understanding computer architecture. Please feel free to [email me](mailto:me@krishna.im) if you have questions, suggestions, or corrections. Thanks and enjoy!
 
 ___
 ## Introduction
@@ -189,9 +189,14 @@ Magnetic Disk				|	5,000,000-20,000,000		|	0.05 - 0.10
 	- The smallest amount of information that is read/written on a disk
 - Read/Write mechanism
 	- Read-Write Head: Movable arm containing a small electromagnetic coil
+
+	- RW-Heads for each surface are connected together and move in conjunction
+	- Thus, every head is over the same track of every surface
+	- Cylinder: All tracks under the heads at a given point on all surfaces
 	- Each surface has one arm containing two RW-Heads, one facing up and one facing down
 
 ### Virtual Memory
+>>>>>>> original/master
 
 
 ___
